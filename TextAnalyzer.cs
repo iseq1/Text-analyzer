@@ -206,12 +206,19 @@ namespace first_SW
         };
         private void button1_Click(object sender, EventArgs e)
         {
-            Analysis an = new Analysis(textBox1);
-            label1.Text = an.WordNumbers(textBox1);
-            label2.Text = an.UniqeuWords(textBox1);
-            label3.Text = an.TopLongestWords(textBox1);
-            label4.Text = an.TopMostPopularWords(textBox1);
-            label5.Text = an.PercentageInText(textBox1);
+            if (textBox1.Text.Length == 0)
+            {
+                MessageBox.Show("Для начала работы необходимо ввести текст!");
+            }
+            else{
+                Analysis an = new Analysis(textBox1);
+                label1.Text = an.WordNumbers(textBox1);
+                label2.Text = an.UniqeuWords(textBox1);
+                label3.Text = an.TopLongestWords(textBox1);
+                label4.Text = an.TopMostPopularWords(textBox1);
+                label5.Text = an.PercentageInText(textBox1);
+            }
+            GC.Collect();
         }
         private void button2_Click(object sender, EventArgs e)
         {
